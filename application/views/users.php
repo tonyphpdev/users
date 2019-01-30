@@ -2,7 +2,7 @@
 
 <div class="site-size">
     <div class="content">
-        <div>
+        <div class="top-link-wrapper">
             <a href="/users/add">New User</a>
         </div>
         <table>

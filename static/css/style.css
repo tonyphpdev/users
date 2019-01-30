@@ -277,10 +277,19 @@ a:hover {
     border-left-color: #ccc;
 }
 .content a {
-    color: #00f;
+    color: #395e1a;
+    display: inline-block;
+    vertical-align: top;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 .content a:hover {
-    color: #3c3;
+    color: #609d2e;
+    text-decoration: none;
+}
+.content a + a {
+    margin-left: 10px;
 }
 .content p {
     margin-bottom: 1em;
@@ -395,6 +404,7 @@ body {
 .site-header {
     position: relative;
     padding: 20px 0;
+    background: #dedede;
 }
 /* end header */
 
@@ -550,3 +560,54 @@ body {
 }
 /* end popup forms */
 
+.top-link-wrapper {
+    padding: 10px 0;
+}
+
+.top-link-wrapper > a {
+    font-weight: bold;
+    color: #222;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.top-link-wrapper > a:hover {
+    color: #777;
+    text-decoration: none;
+}
+
+.form-control-item {
+    padding: 10px 0;
+}
+
+.form-control-item input[type="text"], .form-control-item input[type="email"], .form-control-item > select {
+    display: block;
+    width: 100%;
+    border: solid 2px #aaa;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.form-control-item input[type="text"]:active, .form-control-item input[type="email"]:active, .form-control-item > select:active,
+.form-control-item input[type="text"]:focus, .form-control-item input[type="email"]:focus, .form-control-item > select:focus {
+    border-color: #5b5b5b;
+}
+
+.form-control-item input[type="submit"] {
+    border: solid 1px #626262;
+    background-color: #d8d8d8;
+    padding: 12px;
+    border-radius: 5px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+
+.form-control-item input[type="submit"]:hover, .form-control-item input[type="submit"]:active, .form-control-item input[type="submit"]:focus {
+    background-color: #a7a7a7;
+    border-color: #d8d8d8;
+}
