@@ -19,7 +19,7 @@
                 <td><?php echo $user->country_name[0]->country; ?></td>
                 <td>
                     <a href="/edit/<?php echo $user->id; ?>">Edit User</a>
-                    <a href="/delete/<?php echo $user->id; ?>">Delete User</a>
+                    <a href="#" onclick="if (confirm('Delete user?')) document.location = '/users/delete/<?php echo $user->id; ?>'">Delete User</a>
                 </td>
             </tr>
             <? } ?>

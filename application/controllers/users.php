@@ -35,5 +35,13 @@ class Users extends Controller {
             $users_model->add($_POST['user_name'], $_POST['user_email'], $_POST['country_id']);
         }
     }
+
+    public function delete($id)
+    {
+        $users_model = $this->loadModel('users_model');
+        if ($users_model->delete($id)) {
+            header("Location: /");
+        }
+    }
     
 }

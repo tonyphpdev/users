@@ -42,4 +42,10 @@ class Model
         return $exec;
     }
 
+    public function deleteById($id, $table)
+    {
+        $id = $this->escapeString($id);
+        $exec = mysql_query('DELETE FROM ' . $table . ' WHERE id="' . $id . '"') or die('MySQL Error: ' . mysql_error());
+    }
+
 }

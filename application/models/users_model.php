@@ -19,9 +19,14 @@ class Users_model extends Model
     public function add($user_name, $user_email, $user_country)
     {
         $user_country = (int)$user_country;
-
         if ($this->query('INSERT INTO users (name, email, country_id) VALUES (`' . $user_name . '`, `' . $user_email . '`, `' . $user_country . '`)')) {
             header("Location: /");
         }
+    }
+
+    public function delete($id)
+    {
+        $this->deleteById($id, 'users');
+        return true;
     }
 }
