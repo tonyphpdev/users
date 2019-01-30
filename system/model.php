@@ -29,7 +29,9 @@ class Model
         $result = mysql_query($qry) or die('MySQL Error: ' . mysql_error());
         $resultObjects = array();
 
-        while ($row = mysql_fetch_object($result)) $resultObjects[] = $row;
+        while ($row = mysql_fetch_object($result)) {
+            $resultObjects[] = $row;
+        }
 
         return $resultObjects;
     }

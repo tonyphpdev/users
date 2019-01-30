@@ -6,7 +6,7 @@
         <div class="top-link-wrapper">
             <a href="/">Back To Main Page</a>
         </div>
-        <form>
+        <form method="post" action="/users/add">
             <div class="form-control-item">
                 <label for="user_name">User Name:</label>
                 <input type="text" name="user_name" id="user_name" required>

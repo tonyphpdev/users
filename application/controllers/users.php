@@ -30,9 +30,9 @@ class Users extends Controller {
         $template->set('countries', $countries_list);
         $template->render();
 
-        if (isset($_POST['user_name']) && isset($_POST['user_email']) && isset($_POST['user_country'])) {
+        if (isset($_POST['user_name']) && isset($_POST['user_email']) && isset($_POST['country_id'])) {
 
-            $users_model->add($_POST['user_name'], $_POST['user_email'], $_POST['user_country']);
+            $users_model->add($_POST['user_name'], $_POST['user_email'], $_POST['country_id']);
         }
     }
     
