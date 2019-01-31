@@ -19,9 +19,15 @@ class Users_model extends Model
     public function add($user_name, $user_email, $user_country)
     {
         $user_country = (int)$user_country;
-        if ($this->query('INSERT INTO users (name, email, country_id) VALUES (`' . $user_name . '`, `' . $user_email . '`, `' . $user_country . '`)')) {
-            header("Location: /");
-        }
+        $this->insert('users', ['name', 'email', 'country_id'], [$user_name, $user_email, $user_country]);
+        return true;
+    }
+
+    public function edit($user_id, $user_name, $user_email, $user_country)
+    {
+        $user_country = (int)$user_country;
+        $this->update('users', $user_id, ['name', 'email', 'country_id'], [$user_name, $user_email, $user_country]);
+        return true;
     }
 
     public function delete($id)

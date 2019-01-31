@@ -33,6 +33,28 @@ class Users extends Controller {
         if (isset($_POST['user_name']) && isset($_POST['user_email']) && isset($_POST['country_id'])) {
 
             $users_model->add($_POST['user_name'], $_POST['user_email'], $_POST['country_id']);
+            header("Location: /");
+        }
+    }
+
+    public function edit($id)
+    {
+        $users_model = $this->loadModel('users_model');
+        $user = $users_model->getById($id);
+        $user = $user[0];
+
+        $countries_model = $this->loadModel('countries_model');
+        $countries_list = $countries_model->all();
+
+        $template = $this->loadView('user_edit');
+        $template->set('countries', $countries_list);
+        $template->set('user', $user);
+        $template->render();
+
+        if (isset($_POST['user_name']) && isset($_POST['user_email']) && isset($_POST['country_id'])) {
+
+            $users_model->edit($id, $_POST['user_name'], $_POST['user_email'], $_POST['country_id']);
+            header("Location: /");
         }
     }
 

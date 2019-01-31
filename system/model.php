@@ -42,6 +42,23 @@ class Model
         return $exec;
     }
 
+    public function insert($table, $columns = [], $row = [])
+    {
+        $exec = mysql_query("INSERT INTO " . $table . " (" . implode(',', $columns) . ") VALUES (" . implode(',', $row) . ")  . ") or die('MySQL Error: ' . mysql_error());
+    }
+
+    public function update($table, $id, $columns = [], $row = [])
+    {
+        $id = $this->escapeString($id);
+        $updateArr = [];
+        if (count($columns) === count($row)) {
+            for ($i = 0; $i < count($columns); $i++) {
+                $updateArr[] = $columns[$i] . '=' . $this->escapeString($row[$i]);
+            }
+        }
+        $exec = mysql_query("UPDATE " . $table . " SET " . implode(',', $updateArr) . " WHERE id=" . $id) or die('MySQL Error: ' . mysql_error());
+    }
+
     public function deleteById($id, $table)
     {
         $id = $this->escapeString($id);
